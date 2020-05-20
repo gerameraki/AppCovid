@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Roth</string>
+    <string name="title_activity_main">Roth</string>
+    <string name="package_name">meraki.roth.com</string>
+    <string name="custom_url_scheme">meraki.roth.com</string>
+</resources>

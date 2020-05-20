@@ -1,20 +1,88 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border" mode="ios">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/informacion">
+        <ion-icon name="information-circle-outline" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Prueba ROTH en COVID-19</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content fullscreen="true">
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <img src="assets/medico.png">
+        </ion-col>
+  
+        <ion-col>
+          <br>
+          <ion-label class="texto">Solicite al paciente que tome una respiración profunda y cuente en voz alta hasta el numero 30 tan rápido como sea posible sin volver a tomar aire.</ion-label>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <br>
+          <ion-label class="texto">Detenga el cronómetro cuando el paciente ya no pueda seguir contando o llegue al número 30.</ion-label>
+        </ion-col>
+  
+        <ion-col size="4">
+          <img src="assets/comunicaciones.png">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  
+      <!--Inicio-->
+  
+    
+    <ion-list-header>
+      <ion-title>Segundos</ion-title>
+    </ion-list-header>
+  
+
+  <ion-item> <!--CONTADOR del cronometro que se muestra en pantalla-->
+    <ion-label class="cronometro">{{segundos}}</ion-label>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row> <!--Botones del CRONOMETRO-->
+      <ion-col col-1>   <!--Boton de iniciar/parar-->
+        <ion-button (click)='start_stop()' expand='block' color='{{colors}}' fill='outline'>{{texto}}</ion-button>
+      </ion-col>
+      <ion-col col-1>   <!--Boton de reiniciar-->
+        <ion-button (click)='restart()' expand='block' color='danger' fill='outline'>Reiniciar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+    <!--INPUT donde se obtienen los numero contados-->
+    <ion-list>
+      <ion-item>
+        <ion-label class="tiempo">Números contados:</ion-label>
+        <br>
+        <ion-input type="number"
+                   placeholder="Ingrese aquí el número"
+                   [(ngModel)]="Numerito" 
+                   [ngModelOptions]="{standalone: true}">
+               </ion-input>
+      </ion-item>
+    </ion-list>
+    <!-- Boton para CHECAR resultados -->
+    <ion-button expand= "block" type="submit" (click)="Oxigeno()">
+    Calcular
+    </ion-button>
+  </form>
+  
+  <ion-item color="{{color}}">  <!--Aqui puse esta variable para que cambie el color entre rojo, amarillo y verde-->
+    <ion-label class="ion-text-wrap">{{oxigeno}}</ion-label>  <!--Label donde se muestran los RESULTADOS-->
+  </ion-item>
+
+  <!-- Fin -->
+
 </ion-content>

@@ -25,3 +25,26 @@
 #container a {
   text-decoration: none;
 }
+
+ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.cronometro {
+  font-size: 3em;
+  text-align: center;
+}
+
+.texto {
+  font-size: 18px;
+}
+
+.tiempo {
+  font-size: 18px;
+}
